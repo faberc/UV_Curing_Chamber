@@ -5,7 +5,11 @@
  *     This file holds the primary device controls that control power overflow
  *     through the curing chamber.
  *
- * PsuedoCode:
+ * - Things that need to be added: DEBUG menu (set variables so that we can test
+ * one thing at a time.)
+ * - Adjust motor speed by menu
+ * - The board stepper works, but the program is pausing for some reason
+ * 
  *
  *****************************************************************************/
 
@@ -324,7 +328,7 @@ void cureProcedure() {
       if ((millis() % 10000) < 1) {
         Serial.println("\nDoor is open. Close door to continue curing.");
       }
-      pauseTrigger = 1; // Pauses job when door is open.
+      // pauseTrigger = 1; // Pauses job when door is open. FIXME (uncomment when done testing)
       dmTrigger = 1;
     }
 

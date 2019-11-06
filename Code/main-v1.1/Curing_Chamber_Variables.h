@@ -807,7 +807,7 @@ if(menu == 4) {
     if(button_value == true) {
       menu = 7;
       option = 1;
-      pauseTrigger = true;
+      //pauseTrigger = true; // FIXME: Uncomment when done testing
       Serial.println("Paused");
       update_menu_header();
     }

@@ -2462,22 +2462,12 @@ http://www.st.com&lt;p&gt;
 <contactref element="C6" pad="2"/>
 <contactref element="C7" pad="2"/>
 <contactref element="C1" pad="2"/>
-<polygon width="0.508" layer="16">
-<vertex x="-72.848" y="37.8692"/>
-<vertex x="-72.848" y="-50.9308"/>
-<vertex x="71.402" y="-50.9308"/>
-<vertex x="71.402" y="37.8692"/>
-</polygon>
 <polygon width="0.508" layer="1">
-<vertex x="-72.644" y="-32.004"/>
 <vertex x="69.596" y="-32.004"/>
 <vertex x="69.596" y="-27.432"/>
 <vertex x="69.596" y="37.084"/>
 <vertex x="69.088" y="37.084"/>
-<vertex x="-72.644" y="37.084"/>
 </polygon>
-<wire x1="63.694" y1="-45.8572" x2="63.694" y2="-30.3528" width="0.508" layer="16"/>
-<wire x1="63.694" y1="-30.3528" x2="62.602" y2="-29.2608" width="0.508" layer="16"/>
 <wire x1="-30.997" y1="-44.8338" x2="-63.128" y2="-44.8338" width="0" layer="19" extent="1-1"/>
 <wire x1="-23.48" y1="-39.5808" x2="-30.997" y2="-44.8338" width="0" layer="19" extent="1-1"/>
 <wire x1="-17.478" y1="-37.6518" x2="-23.48" y2="-39.5808" width="0" layer="19" extent="1-1"/>
@@ -2499,6 +2489,7 @@ http://www.st.com&lt;p&gt;
 <wire x1="-32.904" y1="34.6992" x2="-30.676" y2="18.2452" width="0" layer="19" extent="1-1"/>
 <wire x1="42.302" y1="-46.6908" x2="14.502" y2="-45.7708" width="0" layer="19" extent="1-1"/>
 <wire x1="63.694" y1="-45.8572" x2="42.302" y2="-46.6908" width="0" layer="19" extent="1-1"/>
+<wire x1="62.602" y1="-29.2608" x2="63.694" y2="-45.8572" width="0" layer="19" extent="1-1"/>
 <wire x1="19.476" y1="5.2932" x2="-3.174" y2="-12.4868" width="0" layer="19" extent="1-1"/>
 <wire x1="19.476" y1="20.5332" x2="19.476" y2="5.2932" width="0" layer="19" extent="1-1"/>
 <wire x1="62.602" y1="8.8392" x2="62.602" y2="-29.2608" width="0" layer="19" extent="1-1"/>
@@ -2531,14 +2522,12 @@ http://www.st.com&lt;p&gt;
 <signal name="N$10">
 <contactref element="U$1" pad="36"/>
 <contactref element="MCP9808" pad="3"/>
-<wire x1="62.602" y1="28.9052" x2="32.928" y2="28.9052" width="0.508" layer="16"/>
-<wire x1="32.928" y1="28.9052" x2="19.476" y2="15.4532" width="0.508" layer="16"/>
+<wire x1="19.476" y1="15.4532" x2="62.602" y2="28.9052" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$11">
 <contactref element="U$1" pad="33"/>
 <contactref element="MCP9808" pad="4"/>
-<wire x1="62.602" y1="26.3652" x2="38.008" y2="26.3652" width="0.508" layer="16"/>
-<wire x1="38.008" y1="26.3652" x2="19.476" y2="7.8332" width="0.508" layer="16"/>
+<wire x1="19.476" y1="7.8332" x2="62.602" y2="26.3652" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$16">
 <contactref element="RELAY-A" pad="2"/>
@@ -2563,8 +2552,7 @@ http://www.st.com&lt;p&gt;
 <signal name="N$17">
 <contactref element="TFT_SCREEN" pad="2"/>
 <contactref element="R1" pad="1"/>
-<wire x1="62.602" y1="-26.7208" x2="59.08" y2="-23.1988" width="0.508" layer="16"/>
-<wire x1="59.08" y1="-23.1988" x2="53.628" y2="-23.1988" width="0.508" layer="16"/>
+<wire x1="53.628" y1="-23.1988" x2="62.602" y2="-26.7208" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$21">
 <contactref element="U$1" pad="28"/>
@@ -2574,20 +2562,17 @@ http://www.st.com&lt;p&gt;
 <signal name="N$22">
 <contactref element="TFT_SCREEN" pad="10"/>
 <contactref element="U$1" pad="31"/>
-<wire x1="62.602" y1="-6.4008" x2="53.448" y2="2.7532" width="0.508" layer="16"/>
-<wire x1="53.448" y1="2.7532" x2="19.476" y2="2.7532" width="0.508" layer="16"/>
+<wire x1="19.476" y1="2.7532" x2="62.602" y2="-6.4008" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$24">
 <contactref element="TFT_SCREEN" pad="8"/>
 <contactref element="U$1" pad="30"/>
-<wire x1="62.602" y1="-11.4808" x2="50.908" y2="0.2132" width="0.508" layer="16"/>
-<wire x1="50.908" y1="0.2132" x2="19.476" y2="0.2132" width="0.508" layer="16"/>
+<wire x1="19.476" y1="0.2132" x2="62.602" y2="-11.4808" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$25">
 <contactref element="TFT_SCREEN" pad="7"/>
 <contactref element="U$1" pad="29"/>
-<wire x1="62.602" y1="-14.0208" x2="31.17" y2="-14.0208" width="0.508" layer="16"/>
-<wire x1="31.17" y1="-14.0208" x2="19.476" y2="-2.3268" width="0.508" layer="16"/>
+<wire x1="19.476" y1="-2.3268" x2="62.602" y2="-14.0208" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$6">
 <contactref element="SPEAKER" pad="2"/>
@@ -2645,18 +2630,11 @@ http://www.st.com&lt;p&gt;
 <contactref element="MCP9808" pad="1"/>
 <contactref element="DM_SWITCH" pad="1"/>
 <contactref element="R2" pad="2"/>
-<wire x1="66.539015625" y1="32.080184375" x2="64.634" y2="33.9852" width="0.508" layer="16"/>
-<wire x1="62.602" y1="33.9852" x2="64.634" y2="33.9852" width="0.508" layer="16"/>
-<wire x1="66.539015625" y1="32.080184375" x2="66.539015625" y2="10.236215625" width="0.508" layer="16"/>
-<wire x1="66.539015625" y1="10.236215625" x2="62.602" y2="6.2992" width="0.508" layer="16"/>
-<wire x1="62.602" y1="6.2992" x2="65.319003125" y2="3.582196875" width="0.508" layer="16"/>
-<wire x1="65.319003125" y1="3.582196875" x2="65.319003125" y2="-46.530303125" width="0.508" layer="16"/>
-<wire x1="65.319003125" y1="-46.530303125" x2="63.507496875" y2="-48.341809375" width="0.508" layer="16"/>
-<wire x1="63.507496875" y1="-48.341809375" x2="38.503009375" y2="-48.341809375" width="0.508" layer="16"/>
-<wire x1="38.503009375" y1="-48.341809375" x2="35.932" y2="-45.7708" width="0.508" layer="16"/>
+<wire x1="62.602" y1="6.2992" x2="62.602" y2="33.9852" width="0" layer="19" extent="1-1"/>
+<wire x1="35.932" y1="-45.7708" x2="62.602" y2="6.2992" width="0" layer="19" extent="1-1"/>
+<wire x1="1.966" y1="30.7252" x2="62.602" y2="33.9852" width="0" layer="19" extent="1-1"/>
 <wire x1="-3.174" y1="20.5332" x2="1.966" y2="30.7252" width="0" layer="19" extent="1-1"/>
 <wire x1="-30.364" y1="34.6992" x2="-3.174" y2="20.5332" width="0" layer="19" extent="1-1"/>
-<wire x1="62.602" y1="33.9852" x2="1.966" y2="30.7252" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$1">
 <contactref element="TFT_SCREEN" pad="9"/>
@@ -2704,7 +2682,6 @@ http://www.st.com&lt;p&gt;
 <contactref element="C2" pad="+"/>
 <contactref element="RELAY_B" pad="2"/>
 <polygon width="0.1524" layer="1">
-<vertex x="-72.644" y="-33.02"/>
 <vertex x="70.104" y="-33.02"/>
 <vertex x="70.104" y="-50.292"/>
 <vertex x="-72.644" y="-50.292"/>
