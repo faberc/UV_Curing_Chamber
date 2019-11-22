@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.1">
+<eagle version="9.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -14223,7 +14223,7 @@ Portland State University</text>
 <pinref part="MOTOR_BREAKOUT" gate="G$1" pin="4"/>
 </segment>
 </net>
-<net name="V+" class="1">
+<net name="ASDSFA" class="1">
 <segment>
 <pinref part="IC1" gate="A1" pin="VI"/>
 <wire x1="63.5" y1="238.76" x2="73.66" y2="238.76" width="0.1524" layer="91"/>
