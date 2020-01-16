@@ -258,8 +258,8 @@ void menu_options(int menu_type, int region, String heading, int time_min, int t
           tft.println("Temp:");
           tft.setCursor(85, 90);
           tft.println(temp);
-          tft.setCursor(105, 90);
-          tft.println("*F");
+          tft.setCursor(110, 90);
+          tft.println("C");
           tft.setTextSize(2);
           break;
         case 3:
@@ -557,7 +557,7 @@ void menu_pause(int option) { // Pause Menu Settings
  * @returns - Nothing.
  ****************************************************************************************/
 
-void display_menu(int menu_num, int option_num1, int option_num2) {
+void display_menu(int menu_num, int option_num1, float option_num2) {  // FIXME: Changed option_num2 to float from int
   switch (menu_num) {
     case 0: menu_pause(option_num1);
       break;
@@ -807,7 +807,7 @@ if(menu == 4) {
     if(button_value == true) {
       menu = 7;
       option = 1;
-      //pauseTrigger = true; // FIXME: Uncomment when done testing
+      pauseTrigger = true;
       Serial.println("Paused");
       update_menu_header();
     }
@@ -855,7 +855,11 @@ if(menu == 4) {
 void update_display() {
   dial_value = poll_rotary_dial();
   button_value = poll_button();
-  if((dial_value != 0) || button_value)
-    if(update_menu_options(dial_value, button_value))
+  if((dial_value != 0) || button_value){
+    if(update_menu_options(dial_value, button_value)) {
       display_menu(menu, option, 0);
+    }
+  } else if(cureState && (cureProgress % 5000 <= 100)){                             // FIXME: Chuck added
+    display_menu(6, cureProgress/60000, currentTemp);  // FIXME: Chuck Added
+  }
 }

@@ -37,7 +37,7 @@
 #define M3 13   // Motor Pin 3
 #define M4 14   // Motor Pin 4
 #define SPR 200 // Steps per revolution for Stepper
-#define MOTOR_SPEED 20 // Speed in revolutions per minute
+#define MOTOR_SPEED 10 // Speed in revolutions per minute
 
 // #define PWM_CHANNEL 0 // Channel for analog writing to motor // FIXME: May not need
 // #define MOTOR_SPEED 50 // PWM of 100/255 on motor enable pin. // FIXME: May not need
@@ -196,6 +196,7 @@ void loop() {
   // Reads temperature in from temp sensor
   getTemp();
 
+
   // Updates the display based on menu structures and inputs
   update_display();
 
@@ -203,12 +204,12 @@ void loop() {
   if (cureTrigger)
     initializeCure();
 
-  // Controls the cureing process based on a set procedure
-  if (cureState)
+// Controls the cureing process based on a set procedure
+  if (cureState) 
     cureProcedure();
 
   // Overflow Error Avoidance: Reset ESP32 once every 25 days
-  else if ((millis() / (RESET_DAYS * 24 * 60 * 60 * 1000)) >= 1 )
+  if ((millis() / (RESET_DAYS * 24 * 60 * 60 * 1000)) >= 1 )
     ESP.restart();
 }
 
@@ -245,6 +246,9 @@ void initializeCure () {
     rising = 0;   // FIXME: Test to see if value 0 works
     cureState = 1;
     digitalWrite(RELAY, 1);
+
+    display_menu(6, cureProgress/60000, currentTemp);  // FIXME: Chuck Added to test immediately updating the progress
+
     
 //    digitalWrite(M1, 1);  FIXME: REPLACE WITH STEPPER FUNCTION
 //    digitalWrite(M2, 0);
@@ -263,7 +267,7 @@ void cureProcedure() {
     cureComplete = 1;
     digitalWrite(RELAY, 0);
 //    ledcWrite(PWM_CHANNEL, 0);
-    digitalWrite(ME, 0);
+//    digitalWrite(ME, 0);  // Write the Motor Enable pin low -- no longer needed
     cureState = 0;
   }
 
@@ -273,7 +277,7 @@ void cureProcedure() {
     // Debugging block for remaining time
     if (millis() % 10000 < 1) {
       Serial.print("\nRemaining Time: ");
-      Serial.print(cureProgress);
+      Serial.print(cureProgress/60000);
       Serial.print("\n");
     }
 
@@ -289,6 +293,10 @@ void cureProcedure() {
     // When paused, continuously increments the cure time
     if (pauseState) {
       cureTime = cureProgress + millis();
+    } else {
+      cureProgress = cureTime - millis();   // If door is closed decrement cureProgress by how many millis have passed.
+      // Runs the stepper 5 steps at a time
+      myStepper.step(1);  
     }
 
     // Initializes a resume event
@@ -308,7 +316,7 @@ void cureProcedure() {
 
       // Print Remaining time to check that it is 0.
       Serial.print("\nRemaining Time: ");
-      Serial.print(cureProgress);
+      Serial.print(cureProgress/60000);
       Serial.print("\n");
 
       cancelTrigger = 0;
@@ -328,7 +336,7 @@ void cureProcedure() {
       if ((millis() % 10000) < 1) {
         Serial.println("\nDoor is open. Close door to continue curing.");
       }
-      // pauseTrigger = 1; // Pauses job when door is open. FIXME (uncomment when done testing)
+      pauseTrigger = 1; // Pauses job when door is open. FIXME (uncomment when done testing)********
       dmTrigger = 1;
     }
 
@@ -342,9 +350,9 @@ void cureProcedure() {
  // Code which runs while the door is closed and the curing process is working.//
  ////////////////////////////////////////////////////////////////////////////////
       
-      cureProgress = cureTime - millis();   // If door is closed decrement cureProgress by how many millis have passed.
-      // Runs the stepper 5 steps at a time
-      myStepper.step(5);      
+//      cureProgress = cureTime - millis();   // If door is closed decrement cureProgress by how many millis have passed.
+//      // Runs the stepper 5 steps at a time
+//      myStepper.step(1);      
     }
 
 ////////////////////////////
