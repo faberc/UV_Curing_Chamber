@@ -13521,12 +13521,12 @@ Portland State University</text>
 <wire x1="106.68" y1="213.36" x2="106.68" y2="251.46" width="0.508" layer="97"/>
 <wire x1="106.68" y1="251.46" x2="30.48" y2="251.46" width="0.508" layer="97"/>
 <text x="33.02" y="203.2" size="6.4516" layer="97">Power</text>
-<text x="114.3" y="33.02" size="1.778" layer="91">May switch out with a TN0702
+<text x="114.3" y="33.02" size="1.778" layer="97">May switch out with a TN0702
 so the threshhold voltage is lower
 because the IRF530N has a Vth
 between 2 and 4 volts so it might
 not be triggering.</text>
-<text x="175.26" y="30.48" size="1.778" layer="91">We need to switch out this
+<text x="175.26" y="30.48" size="1.778" layer="97">We need to switch out this
 transistor because it needs a
 max current of at least 12.5A
 and the threshold voltage was
